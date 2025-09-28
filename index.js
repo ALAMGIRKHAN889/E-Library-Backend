@@ -7,8 +7,12 @@ const userRoutes = require("./Routes/userRoute.js")
 dotenv.config();
 
 const app = express();
-app.use(cors());
 app.use(express.json());
+app.use(cors({
+    origin: ['http://localhost:5173', 'https://e-library-frontend-cyan.vercel.app/'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+  }));
 
 
 mongoose
