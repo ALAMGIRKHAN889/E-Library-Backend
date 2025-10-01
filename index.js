@@ -2,8 +2,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const userRoutes = require("./Routes/userRoute.js");
 const serverless = require("serverless-http");
+
+const userRoutes = require("./Routes/userRoute.js");
+const departmentRoutes = require("./Routes/DepartmentRoute.js");
+const courseRoutes = require("./Routes/courseRoute.js");
 
 dotenv.config();
 const app = express();
@@ -21,6 +24,8 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use("/api/users", userRoutes);
+app.use("/api/departments", departmentRoutes);
+app.use("/api/courses", courseRoutes);
 
 
 module.exports = app;
