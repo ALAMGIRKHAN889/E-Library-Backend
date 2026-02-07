@@ -5,13 +5,8 @@ const userSchema = new mongoose.Schema(
     role: { type: String, required: true },
     name: { type: String, required: true },
     password: { type: String, required: true }, 
-    department: { type: String, required: true },
-    semester: { type: String, required: true },
-    role: {
-      type: String,
-      enum: ["admin", "student"],
-      default: "student" 
-    }
+    department: { type: String },
+    semester: { type: String },
   },
   { timestamps: true }
 );
